@@ -17,8 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="KA1-L5-YQy">
-                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="KA1-L5-YQy">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="759"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vgA-4A-a1c">
                                     <size key="itemSize" width="128" height="128"/>
@@ -34,25 +34,43 @@
                                             <rect key="frame" x="0.0" y="0.0" width="350" height="350"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="soE-VN-dE7">
-                                                    <rect key="frame" x="10" y="300" width="330" height="30"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="CarlaSchwab" translatesAutoresizingMaskIntoConstraints="NO" id="LxD-eF-UQh">
+                                                    <rect key="frame" x="5" y="5" width="340" height="276"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ROl-vh-lma">
+                                                    <rect key="frame" x="8" y="292" width="342" height="20"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="DLU-or-io2"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="soE-VN-dE7">
+                                                    <rect key="frame" x="14" y="312" width="330" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="K2H-bN-7pB"/>
                                                         <constraint firstAttribute="height" constant="30" id="dmm-s7-lpz"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CarlaSchwab" translatesAutoresizingMaskIntoConstraints="NO" id="LxD-eF-UQh">
-                                                    <rect key="frame" x="5" y="5" width="340" height="270"/>
-                                                </imageView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="ROl-vh-lma" secondAttribute="bottom" constant="100" id="3ep-zp-wXh"/>
+                                                <constraint firstAttribute="bottom" secondItem="ROl-vh-lma" secondAttribute="bottom" constant="40" id="ALR-fe-YNW"/>
                                                 <constraint firstItem="soE-VN-dE7" firstAttribute="top" secondItem="LxD-eF-UQh" secondAttribute="bottom" constant="5" id="BC4-Cf-dmH"/>
+                                                <constraint firstItem="ROl-vh-lma" firstAttribute="top" secondItem="LxD-eF-UQh" secondAttribute="bottom" constant="25" id="CjI-d6-kZf"/>
                                                 <constraint firstAttribute="trailing" secondItem="LxD-eF-UQh" secondAttribute="trailing" constant="5" id="Gu5-xu-Ax2"/>
+                                                <constraint firstItem="ROl-vh-lma" firstAttribute="top" secondItem="LxD-eF-UQh" secondAttribute="bottom" constant="50" id="Hnf-Ey-Q9b"/>
+                                                <constraint firstAttribute="bottom" secondItem="ROl-vh-lma" secondAttribute="bottom" constant="25" id="Jqg-Ek-hCk"/>
                                                 <constraint firstItem="LxD-eF-UQh" firstAttribute="top" secondItem="yEy-CU-0jA" secondAttribute="top" constant="5" id="M3B-rY-dkv"/>
                                                 <constraint firstItem="LxD-eF-UQh" firstAttribute="leading" secondItem="yEy-CU-0jA" secondAttribute="leading" constant="5" id="NDg-zL-OhU"/>
                                                 <constraint firstItem="soE-VN-dE7" firstAttribute="leading" secondItem="yEy-CU-0jA" secondAttribute="leading" constant="10" id="QD6-nn-1rj"/>
+                                                <constraint firstItem="ROl-vh-lma" firstAttribute="top" secondItem="LxD-eF-UQh" secondAttribute="bottom" constant="25" id="XOR-fX-kwJ"/>
+                                                <constraint firstItem="ROl-vh-lma" firstAttribute="top" secondItem="LxD-eF-UQh" secondAttribute="bottom" constant="100" id="e6o-1v-WHk"/>
+                                                <constraint firstAttribute="bottom" secondItem="ROl-vh-lma" secondAttribute="bottom" constant="30" id="eiK-04-QxI"/>
                                                 <constraint firstAttribute="trailing" secondItem="soE-VN-dE7" secondAttribute="trailing" constant="10" id="fgG-mM-3DH"/>
                                                 <constraint firstAttribute="bottom" secondItem="soE-VN-dE7" secondAttribute="bottom" constant="20" id="l7e-lX-4Hs"/>
                                                 <constraint firstItem="soE-VN-dE7" firstAttribute="top" secondItem="LxD-eF-UQh" secondAttribute="bottom" constant="25" id="lIX-gj-OXE"/>
@@ -61,6 +79,7 @@
                                         <size key="customSize" width="350" height="350"/>
                                         <connections>
                                             <outlet property="TitleLbl" destination="soE-VN-dE7" id="Uok-h7-l08"/>
+                                            <outlet property="artistaLabel" destination="ROl-vh-lma" id="ISd-pp-VSW"/>
                                             <outlet property="imageView" destination="LxD-eF-UQh" id="784-KA-2hs"/>
                                         </connections>
                                     </collectionViewCell>

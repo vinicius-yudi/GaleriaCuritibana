@@ -128,13 +128,27 @@ extension GaleriaViewController: UICollectionViewDelegate, UICollectionViewDataS
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let numberOfItemsPerRow: CGFloat = 2
-        let spacing: CGFloat = 8 // mesmo que o minimumInteritemSpacing
-        let totalSpacing = (2 * spacing) + ((numberOfItemsPerRow - 1) * spacing) + collectionView.contentInset.left + collectionView.contentInset.right
-        let width = (collectionView.bounds.width - totalSpacing) / numberOfItemsPerRow
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        return CGSize(width: width, height: width * 1.3) // Altura um pouco maior    }
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let detalhesVC = storyboard.instantiateViewController(withIdentifier: "DetalhesViewController") as? DetalhesViewController {
+            detalhesVC.obra = obras[indexPath.row]
+            detalhesVC.modalPresentationStyle = .fullScreen
+            present(detalhesVC, animated: true, completion: nil)
+        }
     }
+    
+    
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let isIpad = UIDevice.current.userInterfaceIdiom == .pad
+            let numberOfItemsPerRow: CGFloat = isIpad ? 3 : 2 // 3 colunas no iPad, 2 no iPhone
+            
+            let spacing: CGFloat = 8
+            let totalSpacing = (2 * spacing) + ((numberOfItemsPerRow - 1) * spacing) + collectionView.contentInset.left + collectionView.contentInset.right
+
+            let width = (collectionView.bounds.width - totalSpacing) / numberOfItemsPerRow
+
+            return CGSize(width: width, height: width * 1.3)    }
     
 }

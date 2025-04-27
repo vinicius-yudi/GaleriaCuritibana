@@ -10,3 +10,6 @@ O objetivo é apresentar uma **galeria interativa** de obras de arte de artistas
 - Giordano Serafini
 - Victor Gabriel
 - Vinicius Yudi Sumiyoshi Alves
+
+## Link do Video
+https://www.youtube.com/watch?v=IszIM7Rid0E

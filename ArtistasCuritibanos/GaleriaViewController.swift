@@ -8,7 +8,7 @@
 import UIKit
 
 class GaleriaViewController: UIViewController {
-
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     let obras: [ObraDeArte] = [
@@ -97,9 +97,44 @@ class GaleriaViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        collectionView.collectionViewLayout = UICollectionViewFlowLayout()
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        
+        if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+                layout.minimumInteritemSpacing = 8 // Espaço entre as células (horizontal)
+                layout.minimumLineSpacing = 8 // Espaço entre as linhas (vertical)
+            }
+            
+            // 🔵 Aqui adiciona margem nas laterais da CollectionView:
+            collectionView.contentInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+        
+        
+        
     }
-
-
 }
 
+extension GaleriaViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return obras.count
+        
+    }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
+        cell.tituloLabel.text = obras[indexPath.row].titulo
+        cell.artistaLabel.text = obras[indexPath.row].artista
+        cell.imageView.image = UIImage(named: obras[indexPath.row].imagemNome)
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let numberOfItemsPerRow: CGFloat = 2
+        let spacing: CGFloat = 8 // mesmo que o minimumInteritemSpacing
+        let totalSpacing = (2 * spacing) + ((numberOfItemsPerRow - 1) * spacing) + collectionView.contentInset.left + collectionView.contentInset.right
+        let width = (collectionView.bounds.width - totalSpacing) / numberOfItemsPerRow
+        
+        return CGSize(width: width, height: width * 1.3) // Altura um pouco maior    }
+    }
+    
+}
